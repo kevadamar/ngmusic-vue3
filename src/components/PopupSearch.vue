@@ -10,6 +10,8 @@ const inputSearch = ref('')
 const searchMusic = async () => {
     store.commit('showingPopup', false)
     store.dispatch('fetchMusicBySearch', inputSearch.value)
+    router.push({ path: '/music', query: { search: inputSearch.value } })
+    inputSearch.value = ''
 }
 </script>
 

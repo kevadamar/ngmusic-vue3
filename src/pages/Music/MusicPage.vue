@@ -18,7 +18,7 @@ fetchData()
 
 <template>
     <MusicLayout>
-        <div class="h-full bg-[#f8fafc] relative">
+        <div class="h-[100vh] bg-[#f8fafc] relative overflow-auto">
             <MusicBar />
             <button
                 type="button"
@@ -29,7 +29,7 @@ fetchData()
                 Processing...
             </button>
             <div v-else>
-                <div class="mt-16">
+                <div class="mt-[15vh]">
                     <h1 class="text-xl text-gray-500">
                         Search result for :
                         <span class="ml-2 font-bold text-[#7b34dd]">
@@ -38,12 +38,14 @@ fetchData()
                     </h1>
                 </div>
                 <div class="mt-14">
-                    <MusicCard
-                        v-for="(item, index) in store.state.musicStore
-                            ?.resultData?.data?.results"
-                        :key="index"
-                        :data="item"
-                    />
+                    <div class="overflow">
+                        <MusicCard
+                            v-for="(item, index) in store.state.musicStore
+                                ?.resultData?.data?.results"
+                            :key="index"
+                            :data="item"
+                        />
+                    </div>
                 </div>
             </div>
         </div>

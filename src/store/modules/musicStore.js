@@ -35,6 +35,7 @@ export default {
             // console.log('store search', search)
             commit('setLoading', true)
             const response = await getList({ search })
+            console.log(response)
             commit('setData', response)
             commit('setLoading', false)
         },
